@@ -3,9 +3,9 @@ set -ex
 
 DIR=${PWD}
                                                                                                                                                                                                                          
-mkdir -p workspace                                                                                                                                                                                                 
-cd workspace                                                                                                                                                                                                       
-                                                                                                                                                                                                                         
+mkdir -p /opt/workspace
+cd /opt/workspace
+
 ################################################                                                                                                                                                                         
 # Generic git clone script                                                                                                                                                                                               
 # inputs: PACKAGE_NAME, BRANCH, REPO, TAG                                                                                                                                                                                

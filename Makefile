@@ -13,7 +13,6 @@ docker:
 
 build:
 	docker run \
-	-u ${DOCKER_USER} \
 	-e PACKAGE_NAME='${PACKAGE_NAME}' \
 	-e GIT_REPO='${GIT_REPO}' \
 	-e GIT_BRANCH='${GIT_BRANCH}' \
@@ -22,7 +21,6 @@ build:
 
 package:
 	docker run \
-	-u ${DOCKER_USER} \
 	-e PACKAGE_NAME='${PACKAGE_NAME}' \
 	-e VERSION='${VERSION}' \
 	-e GIT_TAG='${GIT_TAG}' \
@@ -31,7 +29,6 @@ package:
 
 publish:
 	docker run \
-	-u ${DOCKER_USER} \
 	-e PACKAGE_NAME='${PACKAGE_NAME}' \
 	-e DEB_CODENAME='${DEB_CODENAME}' \
 	-e s3Secret='${s3Secret}' \
