@@ -33,6 +33,6 @@ publish:
 	-v ${PWD}:/${PACKAGE_NAME} -w /${PACKAGE_NAME} ${DOCKER_CONTAINER}:${DOCKER_TAG} ./publish.sh
 
 clean:
-	docker rm $(docker ps -a -q)
+	docker rm $(docker ps -a -q) || true
 	rm -rf ./build
 	rm -rf ./pkg
