@@ -38,8 +38,6 @@ publish:
 	-v ${PWD}:/${PACKAGE_NAME} -w /${PACKAGE_NAME} ${DOCKER_CONTAINER}:${DOCKER_TAG} ./publish.sh
 
 clean:
-	chown -R ${DOCKER_USER}:${DOCKER_USER} ./build
-	chown -R ${DOCKER_USER}:${DOCKER_USER} ./pkg
 	docker rm $(docker ps -a -q) || true
 	rm -rf ./build
 	rm -rf ./pkg
