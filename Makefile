@@ -36,7 +36,9 @@ publish:
 	-v ${PWD}:/${PACKAGE_NAME} -w /${PACKAGE_NAME} ${DOCKER_CONTAINER}:${DOCKER_TAG} ./publish.sh
 
 clean:
-	docker rm $(docker ps -a -q) || true
-	rm -rf ./workspace
-	rm -rf ./build
+	docker run \
+	-v ${PWD}:/${PACKAGE_NAME} -w /${PACKAGE_NAME} ${DOCKER_CONTAINER}:${DOCKER_TAG} \
+	rm -rf ./workspace && \
+	rm -rf ./build && \
 	rm -rf ./pkg
+	docker rm $(docker ps -a -q) || true
