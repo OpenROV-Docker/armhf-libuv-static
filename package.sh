@@ -1,17 +1,16 @@
 #!/bin/bash
 set -ex
 
-#Install Pre-req
-gem install fpm
-
 DIR=${PWD}
 
+# Get arch
 ARCH=`uname -m`
 if [ ${ARCH} = "armv7l" ]
 then
   ARCH="armhf"
 fi
 
+# Create version postfix
 PACKAGE_VERSION=${VERSION}_${GIT_TAG}_d${DOCKER_TAG}
 
 # Create package folder
@@ -25,4 +24,4 @@ fpm -f -m info@openrov.com -s dir -t deb -a $ARCH \
 	-n ${PACKAGE_NAME} \
 	-v ${PACKAGE_VERSION} \
 	--description "Libuv static build" \
-	-C ${DIR}/pkg ./
+	-C ${DIR}/bin ${DIR}/pkg

@@ -22,6 +22,7 @@ build:
 package:
 	docker run \
 	-e PACKAGE_NAME='${PACKAGE_NAME}' \
+	-e VERSION='${VERSION}' \
 	-e GIT_TAG='${GIT_TAG}' \
 	-e DOCKER_TAG='${DOCKER_TAG}' \
 	-v ${PWD}:/${PACKAGE_NAME} -w /${PACKAGE_NAME} ${DOCKER_CONTAINER}:${DOCKER_TAG} ./package.sh
