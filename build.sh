@@ -16,12 +16,7 @@ cd ${PACKAGE_NAME}
 git checkout ${GIT_TAG}                                                                                                                                                                                                      
                                                                                                                                                                                                                          
 ################################################                                                                                                                                                                         
-# Project specific build script                                                                                                                                                                                          
-                                                                                                                                                                                                                         
-# Install dependencies
-apt-get update && \
-apt-get install -y nano build-essential libtool autotools-dev autoconf
-
+# Project specific build script                                                                                                                                                                                                                                                                                                                                                                                                             
 # Configure
 ./autogen.sh
 ./configure --enable-static --disable-shared --prefix=/usr/
