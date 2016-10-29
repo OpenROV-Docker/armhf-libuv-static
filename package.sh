@@ -23,5 +23,5 @@ fpm -f -m info@openrov.com -s dir -t deb -a $ARCH \
 	--description "Libuv static build" \
 	-C ${DIR}/build ./
 
-# Copy package to pkg dir
-cp *.deb ${DIR}/pkg
+# Move package to pkg dir
+mv *.deb ${DIR}/pkg
