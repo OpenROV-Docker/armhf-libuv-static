@@ -30,6 +30,8 @@ package:
 publish:
 	docker run \
 	-e PACKAGE_NAME='${PACKAGE_NAME}' \
+	-e s3Secret='${s3Secret}' \
+	-e s3Key='${s3Key}' \
 	-v ${PWD}:/${PACKAGE_NAME} -w /${PACKAGE_NAME} ${DOCKER_CONTAINER}:${DOCKER_TAG} ./publish.sh
 
 clean:
