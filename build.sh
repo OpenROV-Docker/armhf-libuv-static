@@ -3,8 +3,8 @@ set -ex
 
 DIR=${PWD}
                                                                                                                                                                                                                          
-mkdir -p /opt/workspace
-cd /opt/workspace
+mkdir -p ${DIR}/workspace
+cd ${DIR}/workspace
 
 ################################################                                                                                                                                                                         
 # Generic git clone script                                                                                                                                                                                               

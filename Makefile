@@ -37,5 +37,6 @@ publish:
 
 clean:
 	docker rm $(docker ps -a -q) || true
+	rm -rf ./workspace
 	rm -rf ./build
 	rm -rf ./pkg
