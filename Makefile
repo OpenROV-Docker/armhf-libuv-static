@@ -18,7 +18,7 @@ build:
 	-e GIT_BRANCH='${GIT_BRANCH}' \
 	-e GIT_TAG='${GIT_TAG}' \
 	-v ${PWD}:/${PACKAGE_NAME} -w /${PACKAGE_NAME} ${DOCKER_CONTAINER}:${DOCKER_TAG} ./build.sh
-	sudo chown -R ${DOCKER_USER}:${DOCKER_USER} ./build
+	chown -R ${DOCKER_USER}:${DOCKER_USER} ./build
 
 package:
 	docker run \
@@ -27,7 +27,7 @@ package:
 	-e GIT_TAG='${GIT_TAG}' \
 	-e DOCKER_TAG='${DOCKER_TAG}' \
 	-v ${PWD}:/${PACKAGE_NAME} -w /${PACKAGE_NAME} ${DOCKER_CONTAINER}:${DOCKER_TAG} ./package.sh
-	sudo chown -R ${DOCKER_USER}:${DOCKER_USER} ./pkg
+	chown -R ${DOCKER_USER}:${DOCKER_USER} ./pkg
 
 publish:
 	docker run \
@@ -38,8 +38,8 @@ publish:
 	-v ${PWD}:/${PACKAGE_NAME} -w /${PACKAGE_NAME} ${DOCKER_CONTAINER}:${DOCKER_TAG} ./publish.sh
 
 clean:
-	sudo chown -R ${DOCKER_USER}:${DOCKER_USER} ./build
-	sudo chown -R ${DOCKER_USER}:${DOCKER_USER} ./pkg
+	chown -R ${DOCKER_USER}:${DOCKER_USER} ./build
+	chown -R ${DOCKER_USER}:${DOCKER_USER} ./pkg
 	docker rm $(docker ps -a -q) || true
 	rm -rf ./build
 	rm -rf ./pkg
