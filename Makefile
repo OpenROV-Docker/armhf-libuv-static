@@ -17,6 +17,7 @@ build:
 	-e GIT_REPO='${GIT_REPO}' \
 	-e GIT_BRANCH='${GIT_BRANCH}' \
 	-e GIT_TAG='${GIT_TAG}' \
+	-e DOCKER_USER='${DOCKER_USER}' \
 	-v ${PWD}:/${PACKAGE_NAME} -w /${PACKAGE_NAME} ${DOCKER_CONTAINER}:${DOCKER_TAG} ./build.sh
 
 package:
@@ -25,6 +26,7 @@ package:
 	-e VERSION='${VERSION}' \
 	-e GIT_TAG='${GIT_TAG}' \
 	-e DOCKER_TAG='${DOCKER_TAG}' \
+	-e DOCKER_USER='${DOCKER_USER}' \
 	-v ${PWD}:/${PACKAGE_NAME} -w /${PACKAGE_NAME} ${DOCKER_CONTAINER}:${DOCKER_TAG} ./package.sh
 
 publish:
@@ -33,6 +35,7 @@ publish:
 	-e DEB_CODENAME='${DEB_CODENAME}' \
 	-e s3Secret='${s3Secret}' \
 	-e s3Key='${s3Key}' \
+	-e DOCKER_USER='${DOCKER_USER}' \
 	-v ${PWD}:/${PACKAGE_NAME} -w /${PACKAGE_NAME} ${DOCKER_CONTAINER}:${DOCKER_TAG} ./publish.sh
 
 clean:
