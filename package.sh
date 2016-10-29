@@ -11,14 +11,14 @@ then
 fi
 
 # Create version postfix
-PACKAGE_VERSION=${VERSION}_${GIT_TAG}_${DOCKER_TAG}
+PACKAGE_VERSION=${VERSION}
 
 # Create package folder
 mkdir -p ${DIR}/pkg
 
 # Package as debian package
 fpm -f -m info@openrov.com -s dir -t deb -a $ARCH \
-	-n ${PACKAGE_NAME} \
+	-n ${PACKAGE_NAME}_${GIT_TAG}_${DOCKER_TAG} \
 	-v ${PACKAGE_VERSION} \
 	--description "Libuv static build" \
 	-C ${DIR}/build ./
