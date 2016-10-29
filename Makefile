@@ -18,6 +18,7 @@ build:
 	-e GIT_BRANCH='${GIT_BRANCH}' \
 	-e GIT_TAG='${GIT_TAG}' \
 	-v ${PWD}:/${PACKAGE_NAME} -w /${PACKAGE_NAME} ${DOCKER_CONTAINER}:${DOCKER_TAG} ./build.sh
+	sudo chown -R $USER:$USER ./build
 
 package:
 	docker run \
@@ -26,6 +27,7 @@ package:
 	-e GIT_TAG='${GIT_TAG}' \
 	-e DOCKER_TAG='${DOCKER_TAG}' \
 	-v ${PWD}:/${PACKAGE_NAME} -w /${PACKAGE_NAME} ${DOCKER_CONTAINER}:${DOCKER_TAG} ./package.sh
+	sudo chown -R $USER:$USER ./pkg
 
 publish:
 	docker run \
