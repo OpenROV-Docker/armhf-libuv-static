@@ -29,6 +29,3 @@ mkdir -p ${DIR}/build
 
 # Install to out-of-source bin directory
 make install DESTDIR=${DIR}/build
-
-# Clean up permissions
-chown -R ${DOCKER_USER}:${DOCKER_USER} ${DIR}/build

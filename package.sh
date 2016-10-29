@@ -25,6 +25,3 @@ fpm -f -m info@openrov.com -s dir -t deb -a $ARCH \
 
 # Move package to pkg dir
 mv *.deb ${DIR}/pkg
-
-# Clean up permissions
-chown -R ${DOCKER_USER}:${DOCKER_USER} ${DIR}/pkg
