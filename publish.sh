@@ -23,7 +23,10 @@ folder="/${DEB_CODENAME}/${PACKAGE_NAME}"
 
 contentType="application/x-compressed-tar"
 dateValue=`date -R`
-for f in ${PWD}/pkg/*.deb; do
+
+cd ${PWD}/pkg
+
+for f in *.deb; do
 resource="/${bucket}${folder}/${f}"
 stringToSign="PUT\n\n${contentType}\n${dateValue}\n${resource}"
 
