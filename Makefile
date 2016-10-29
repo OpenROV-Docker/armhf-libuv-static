@@ -34,3 +34,5 @@ publish:
 
 clean:
 	docker rm $(docker ps -a -q)
+	rm -rf ./build
+	rm -rf ./pkg

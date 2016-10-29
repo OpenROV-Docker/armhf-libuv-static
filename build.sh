@@ -24,8 +24,8 @@ git checkout ${GIT_TAG}
 # Build
 make -j
 
-# Create bin dir
-mkdir -p ${DIR}/bin
+# Create build dir
+mkdir -p ${DIR}/build
 
 # Install to out-of-source bin directory
-make install DESTDIR=${DIR}/bin
+make install DESTDIR=${DIR}/build
